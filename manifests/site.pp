@@ -1,5 +1,9 @@
 node default {
+
   }
+  
 node master.puppet.vm {
-    include role:: master_server
-  }
+  include dockeragent
+  dockeragent::node {'web.puppet.vm':}
+  dockeragent::node {'db.puppet.vm':}
+}
